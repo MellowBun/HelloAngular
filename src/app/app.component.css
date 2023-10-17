@@ -1,3 +1,16 @@
-h1 {
-    color: red;
+div.navbar {
+    display: flex;
+}
+
+ul.link-list {
+    display: flex;
+    list-style: none;
+}
+
+li.link {
+    margin: 5px;
+}
+
+li.link:hover {
+    background-color: hotpink;
 }
