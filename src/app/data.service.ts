@@ -11,22 +11,18 @@ export interface Game {
 })
 export class DataService {
 
-  baseURL: string = "htttp://localhost:3000/api";
+  baseURL: string = "http://localhost:3000/api";
 
-  private dataArray: any[] = [
-    { name: "toast", id: 1 },
-    { name: "toast 1", id: 2 },
-    { name: "toast 2", id: 3 }
-  ];
-
-  mockGameArray$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.dataArray);
+  games$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   constructor(private http: HttpClient) { }
 
   // get all
   getAllGames(): void {
-    this.dataArray.push({ name: "New Value", id: 0 });
-    this.mockGameArray$.next(this.dataArray);
+    this.http.get<any[]>(`${this.baseURL}/games`).subscribe(result => {
+      console.log("get all games at service", result);
+      this.games$.next(result);
+    });
   }
   
   // get one by id
