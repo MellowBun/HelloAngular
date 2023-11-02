@@ -25,6 +25,15 @@ export class DataService {
     });
   }
   
+  test: any[] = [
+    {id: 1, name: "toast"},
+    {id: 2, name: "toast 2"},
+    {id: 3, name: "toast 3"},
+  ]
+
+  getOneGame(id: string): void {
+    
+  }
   // get one by id
   // create new
   // update existing
