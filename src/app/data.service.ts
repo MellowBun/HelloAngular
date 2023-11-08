@@ -31,9 +31,10 @@ export class DataService {
     {id: 3, name: "toast 3"},
   ]
 
-  getOneGame(id: string): void {
-    
+  getOneGame(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}/games/${id}`);
   }
+
   // get one by id
   // create new
   // update existing
